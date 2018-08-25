@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+ <!-- Modal -->
+
+
+</div>
+    <center><h2 style="color:#3c8dbc;">-: Inventory Management System :-</h2></center>
+    <hr><div>
+    {% if flag==1 %}
+    <center><h6>product added<h6></h6><center>
+    {% endif %}
+        {% if flag==2 %}
+    <center><h6>location added<h6></h6><center>
+    {% endif %}
+        {% if flag==0 %}
+    <center><h6>Quantity nat available<h6></h6><center>
+    {% endif %}
+        {% if flag==3 %}
+    <center><h6>product moved<h6></h6><center>
+    {% endif %}
+    <ul class="breadcrumb ">
+<li class="breadcrumb-item"><a href="/home">Home</a></li>
+</ul>
+
+
+</div>
+    <hr>
+  <div class="row">
+    <div class="col-sm-4">
+  <div class="card">
+      <div class="card-header bg-danger" style="color:white;"><h4>Product Management</h4></div>
+      <div class="card-body">
+
+          <center>
+               <img src="{{url_for('static', filename='b.jpg')}}" height="120px" , width="120px" class="img-responsive" alt="box">
+              <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add Product</button>
+          </center><hr>
+    </div>
+      <div class="card-footer"><a href="/show" style="text-decoration:none;">View Details...</a></div>
+    </div >
+  </div>
+      <div class="col-sm-4">
+  <div class="card">
+      <div class="card-header bg-success" style="color:white;"><h4>Warehouse Management</h4></div>
+      <div class="card-body">
+
+          <center>
+              <img src="{{url_for('static', filename='l.png')}}" height="120px" , width="120px" class="img-responsive" alt="box">
+              <button class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Add Location</button>
+          </center><hr>
+    </div>
+    <div class="card-footer"><a href="/location_show" style="text-decoration:none;" >View Details...</a></div>
+    </div >
+  </div>
+      <div class="col-sm-4">
+  <div class="card">
+      <div class="card-header bg-warning" style="color:white;"><h4>Product Movement</h4></div>
+      <div class="card-body"> <center>
+             <img src="{{url_for('static', filename='kart.png')}}" height="120 px" , width="120px" class="img-responsive" alt="box">
+         <button class="btn btn-primary" data-toggle="modal" data-target="#maov">Move Product</button></center><hr>
+    </div>
+
+      <div class="card-footer"><a href="/view_move" style="text-decoration:none;" >View Movements...</a></div>
+    </div >
+  </div>
+  </div>
+</div>
+<hr>
+
+<center>   <button class="btn btn-primary" onclick="location.href='/view_report'">View Report...</button> </center>
+
+<!-- The Modal -->
+
+
+
+<!-- The Modal -->
+
+
+{% endblock %}
