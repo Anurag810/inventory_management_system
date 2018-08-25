@@ -8,9 +8,9 @@
 
  #### GIT Commands:
  
-   git pull
-   git status
-   git add .
-   git commit -m "any message"
-   git push
-   git push  --set-upstream origin branch_name
+    git pull
+    git status
+    git add .
+    git commit -m "any message"
+    git push
+    git push  --set-upstream origin branch_name
