@@ -9,10 +9,10 @@ The following items should be installed in your system:
 
 ## Add following Intepreter
 
-1.Flask
-2.jinja2
-3.mysql-connector-python(for Database Connection)
-4.Flask-Session
+1. Flask
+2. jinja2
+3. mysql-connector-python(for Database Connection)
+4. Flask-Session
 
 ## Commands used
 
