@@ -25,7 +25,7 @@ The following items should be installed in your system:
     pip install Flask
 
     //for installing jinja2 templates
-    pip install jinj
+    pip install jinja2-cli
 
     //for installing mysql connector
     pip install mysql-connector-python
