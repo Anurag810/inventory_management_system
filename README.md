@@ -1,8 +1,37 @@
 # product_inventory
 ### The product is being developed to track real time movement of products from one location to another.
 
+## prerequisites:
+The following items should be installed in your system:
 
-#### PAGES
+1. Pycharm IDE
+2. MySql Database server
+
+## Add following Intepreter
+
+1.Flask
+2.jinja2
+3.mysql-connector-python(for Database Connection)
+4.Flask-Session
+
+## Commands used
+
+
+    //for creating virtual venv
+    pip virtualenv venv
+
+    //for installing Flask
+    pip install Flask
+
+    //for installing jinja2 templates
+    pip install jinj
+
+    //for installing mysql connector
+    pip install mysql-connector-python
+
+
+
+# PAGES
 ## 1. Login Page
 
 <img src="product_inventory/images/Login_page.png">
