@@ -6,6 +6,8 @@
 1. Login Page
 2. Home Page
 
+<img src="product_inventory/images/Login_page.png">
+
  #### GIT Commands:
  
     git pull
