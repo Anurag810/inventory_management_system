@@ -18,6 +18,7 @@ The following items should be installed in your system:
 
 
     //for creating virtual venv
+    pip install virtualenv
     pip virtualenv venv
 
     //for installing Flask
