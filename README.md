@@ -7,14 +7,14 @@ The following items should be installed in your system:
 1. Pycharm IDE
 2. MySql Database server
 
-## Add following Intepreter
+## Add following Intepreter:
 
 1. Flask
 2. jinja2
 3. mysql-connector-python(for Database Connection)
 4. Flask-Session
 
-## Commands used
+## Commands used:
 
 
     //for creating virtual venv
@@ -29,6 +29,11 @@ The following items should be installed in your system:
     //for installing mysql connector
     pip install mysql-connector-python
 
+## Steps
+1. Download the whole project
+2. import to pycharm IDE
+
+        File --> import settings --> project folder
 
 
 # PAGES
