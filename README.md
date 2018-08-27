@@ -9,10 +9,14 @@ The following items should be installed in your system:
 
 ## Technologies Used:
 
-1. Flask
-2. jinja2
-3. mysql-connector-python(for Database Connection)
-4. Flask-Session
+    1. Python 2.7.10
+    2. Flask 1.0.2
+    3. jinja2 2.10
+    4. mysql-connector-python 8.0.12
+    5. Bootstrap 4.1.3
+    6. HTML5
+    7. JavaScript
+    8. CSS
 
 ## Commands used:
 
