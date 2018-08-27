@@ -36,7 +36,67 @@ The following items should be installed in your system:
 
 ## Steps
 1. Download the whole project
-2. import to pycharm IDE
+2. Create database name as inventory and following tables
+
+        //for creating database
+        CREATE DATABASE inventory;
+
+        //for creating tables
+        CREATE TABLE user (
+            uid int(10) NOT NULL AUTO_INCREMENT,
+            u_name varchar(50) NOT NULL,
+            pass varchar(50) NOT NULL,
+            PRIMARY KEY (uid)
+        );
+
+        //for creating product tables
+        CREATE TABLE product (
+            pid int(10) NOT NULL AUTO_INCREMENT,
+            p_name varchar(50) NOT NULL,
+            P_type varchar(50) NOT NULL,
+            P_weight int(10) NOT NULL,
+            PRIMARY KEY (pid)
+        );
+
+        //for creating table location
+        CREATE TABLE location (
+            lid int(10) NOT NULL AUTO_INCREMENT,
+            l_name varchar(50) NOT NULL,
+            l_add varchar(50) NOT NULL,
+            l_city varchar(50) NOT NULL,
+            PRIMARY KEY (lid)
+        );
+
+        //for creating table movement 
+        CREATE TABLE movement (
+            mid int(10) NOT NULL AUTO_INCREMENT,
+            time TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT,
+            l_from varchar(10) NOT NULL,
+            l_to varchar(10) NOT NULL,
+            pid int(10),
+            qty int(10),
+            PRIMARY KEY (mid)
+        );
+
+        CREATE TABLE quantity (
+            lid int(10) NOT NULL,
+            pid int(10) NOT NULL,
+            qty int(10) NOT NULL,
+        );
+
+4. Create default user for login
+
+        //create default user
+        
+        INSERT INTO  `user` (
+        `u_name` ,
+        `pass`
+        )
+        VALUES (
+        'user',  'password'
+        );
+
+3. import to pycharm IDE
 
         File --> import settings --> project folder
 
