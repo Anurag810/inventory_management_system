@@ -78,6 +78,7 @@ The following items should be installed in your system:
             PRIMARY KEY (mid)
         );
 
+        // for creating table quantity
         CREATE TABLE quantity (
             lid int(10) NOT NULL,
             pid int(10) NOT NULL,
