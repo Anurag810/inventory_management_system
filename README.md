@@ -1,7 +1,7 @@
 # Product Inventory Management System
 ### The product is being developed to track real time movement of products from one location to another.
 
-## prerequisites:
+## Prerequisites:
 The following items should be installed in your system:
 
 1. Pycharm IDE
@@ -96,7 +96,7 @@ The following items should be installed in your system:
         'user',  'password'
         );
 
-3. import to pycharm IDE
+3. Import to pycharm IDE
 
         File --> import settings --> project folder
 
