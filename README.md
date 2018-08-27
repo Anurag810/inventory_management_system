@@ -7,7 +7,7 @@ The following items should be installed in your system:
 1. Pycharm IDE
 2. MySql Database server
 
-## Add following Intepreter:
+## Technologies Used:
 
 1. Flask
 2. jinja2
