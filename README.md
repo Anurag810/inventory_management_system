@@ -1,4 +1,4 @@
-# product_inventory
+# Product Inventory Management System
 ### The product is being developed to track real time movement of products from one location to another.
 
 ## prerequisites:
@@ -70,7 +70,7 @@ The following items should be installed in your system:
         //for creating table movement 
         CREATE TABLE movement (
             mid int(10) NOT NULL AUTO_INCREMENT,
-            time TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT,
+            time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             l_from varchar(10) NOT NULL,
             l_to varchar(10) NOT NULL,
             pid int(10),
