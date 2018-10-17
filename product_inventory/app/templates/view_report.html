@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<center><h2 style="color:#3c8dbc;">-: Inventory Management System :-</h2></center>
+    <hr>
+<center><h4 style="color:#3c8dbc;">-: Report :-</h4></center>
+    <hr>
+    <ul class="breadcrumb ">
+<li class="breadcrumb-item"><a href="/home">Home</a></li>
+<li class="breadcrumb-item active">View Report</li>
+</ul>
+    <table class="table table-striped">
+        <thead>
+            <th>Location</th>
+            <th>Product</th>
+            <th>Available quantity</th>
+        </thead>
+    <tbody>
+
+    {% for r in report %}<tr>
+    {% for c in r %}
+        <td>{{ c }}</td>
+    {% endfor %}</tr>
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+
+{% endblock %}
+
+
+{% for r in report %}
+       {% for m in r %}
+        {{ m }}
+    {% endfor %}
+<br>
+{% endfor %}

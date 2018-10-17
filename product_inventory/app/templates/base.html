@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Inventory Management System|Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}">
+  <script src="{{url_for('static', filename='jquery.min.js')}}"></script>
+  <script src="{{url_for('static', filename='popper.min.js')}}"></script>
+  <script src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-info navbar-light">
+  <a class="navbar-brand" href="#">
+                    <img src="{{url_for('static', filename='frappe-logo.png')}}" height="50px" , width="50px" class="img-responsive" alt="logo">
+
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+
+        <li class="nav-item">
+      <a class="nav-link" href="/home">Home</a>
+    </li>
+
+        <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Products</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal">Add Product</a>
+
+        <a class="dropdown-item" href="/show">View Products</a>
+      </div>
+    </li>
+          <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Warehouses</a>
+      <div class="dropdown-menu">
+         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal1">Add Location</a>
+
+        <a class="dropdown-item" href="/location_show">View locations</a>
+      </div>
+    </li>
+          <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Movement</a>
+      <div class="dropdown-menu">
+   <a class="dropdown-item" href="#" data-toggle="modal" data-target="#maov">Move Product</a>
+
+        <a class="dropdown-item" href="/view_move">View Movement Details</a>
+      </div>
+    </li>
+         <li class="nav-item">
+      <a class="nav-link" href="/view_report">View Report</a>
+    </li>
+        <li class="nav-item" id="logoutLink">
+      <a class="nav-link" href="/logout">Log Out</a>
+    </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<script>
+
+    function val(){
+   var f=document.getElementById('sel1').value;
+   var t=document.getElementById('sel2').value;
+   var q=document.getElementById('qty').value;
+
+    if(f==t || q==0){
+    alert("No! such movement is possible: check location or Enter valid quantity");
+
+
+    return false;
+    }
+
+
+    return true;
+}
+</script>
+
+<div class="container">
+    <div class="modal fade" id="maov" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h4 class="modal-title">Move Product</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form  action="/add_movement" onsubmit="return val()" method="post">
+
+                 <div class="form-group">
+  <label for="sel1">From:</label>
+  <select class="form-control" id="sel1" name="from">
+      <option  value="--"> -- </option>
+{% for location in lc: %}
+     <option value="{{ location[0] }}">
+    {% for ele in location: %}
+         {{ ele }}
+    {% endfor %}
+     </option>
+{% endfor %}
+  </select>
+</div>
+        <div class="form-group">
+  <label for="sel2">To:</label>
+  <select class="form-control" id="sel2" name="to">
+      <option value="--"> -- </option>
+{% for location in lc: %}
+     <option value="{{ location[0] }}">
+    {% for ele in location: %}
+         {{ ele }}
+    {% endfor %}
+     </option>
+{% endfor %}
+  </select>
+</div>  <div class="form-group">
+  <label for="sel3">Product:</label>
+  <select class="form-control" id="sel3" name="pro">
+{% for location in po: %}
+     <option value="{{ location[0] }}">
+    {% for ele in location: %}
+         {{ ele }}
+    {% endfor %}
+     </option>
+{% endfor %}
+  </select>
+</div>
+                 <div class="form-group">
+  <label for="qty">Quantity</label>
+  <input type="text" class="form-control" id="qty" name="qty" pattern ="[0-9]*" required>
+</div>
+ <center> <input type="submit" class="form-control bg-success" value="Add Location"  style="width:auto; color:white;"> </center>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header bg-info">
+        <h4 class="modal-title" style="color:white;">Add product</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+          <h5>Enter the details:</h5>
+          <hr>
+          <form method="post" action="/add_product">
+              <div class="form-group">
+  <label for="p_name">Product name:</label>
+  <input type="text" class="form-control" id="p_name" name="p_name" pattern="[a-z,A-Z,., ,0-9]*" required>
+</div>
+               <div class="form-group">
+  <label for="type">Product type:</label>
+  <input type="text" class="form-control" id="type" name="type" pattern="[a-z,A-Z,., ]*" required>
+</div>
+               <div class="form-group">
+  <label for="weight">Product weight:</label>
+  <input type="text" class="form-control" id="weight" name="weight" pattern="[1-9]+[0-9]*" required>
+</div>
+               <div class="form-group">
+
+                   <center> <input type="submit" class="form-control bg-success" value="Add product" style="width:auto; color:white;"> </center>
+
+</div>
+          </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+    <div class="modal fade" id="myModal1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header bg-info">
+        <h4 class="modal-title" style="color:white;">Add Location</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+          <h5>Enter the details:</h5>
+          <hr>
+          <form method="post" action="/add_location">
+              <div class="form-group">
+  <label for="l_name">location name:</label>
+  <input type="text" class="form-control" id="l_name" name="l_name" pattern="[A-Z,a-z][a-z,A-Z,., ]*" required>
+</div>
+               <div class="form-group">
+  <label for="add">location address:</label>
+  <input type="text" class="form-control" id="add" name="add" pattern="[A-Z,a-z][a-z,A-Z,., ]*" required>
+</div>
+               <div class="form-group">
+  <label for="city">location city:</label>
+  <input type="text" class="form-control" id="city" name="city" pattern="[A-Z,a-z][a-z,A-Z,., ]*" required>
+</div>
+               <div class="form-group">
+
+                   <center> <input type="submit" class="form-control bg-success" value="Add Location" style="width:auto; color:white;"> </center>
+
+</div>
+          </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+    <div class="modal fade" id="myModal1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header bg-info">
+        <h4 class="modal-title" style="color:white;">Add Location</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+          <h5>Enter the details:</h5>
+          <hr>
+          <form method="post" action="/add_location">
+              <div class="form-group">
+  <label for="l_name">location name:</label>
+  <input type="text" class="form-control" id="l_name" name="l_name">
+</div>
+               <div class="form-group">
+  <label for="add">location address:</label>
+  <input type="text" class="form-control" id="add" name="add">
+</div>
+               <div class="form-group">
+  <label for="city">location city:</label>
+  <input type="text" class="form-control" id="city" name="city">
+</div>
+               <div class="form-group">
+
+                   <center> <input type="submit" class="form-control bg-success" value="Add Location" style="width:auto; color:white;"> </center>
+
+</div>
+          </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+
+ <!-- Modal -->
+  <div class="modal fade" id="maov" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+</div>
+
+{% block content %} {% endblock %}
+
+
+</body>
+</html>
+
+
